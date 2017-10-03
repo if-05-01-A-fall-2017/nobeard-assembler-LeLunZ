@@ -1,0 +1,79 @@
+"Enter Number:Error Please use a positive number, bigger than 0"
+
+inc 12
+
+lit 0
+lit 13
+lit 14
+out 2
+
+la 0 32
+la 0 36
+in 0
+
+lv 0 32
+lit 1
+rel 0
+tjmp .stopA
+lv 0 32
+lit 1
+rel 2
+tjmp .one
+
+la 0 40
+lit 2
+sto
+
+jmp .searchPrime
+halt
+
+.searchPrime
+lv 0 32
+lv 0 40
+mod
+lit 0
+rel 2
+fjmp .Search
+la 0 32
+lv 0 32
+lv 0 40
+div
+sto
+lv 0 40
+lit 1
+out 0
+out 3
+la 0 40
+lit 2
+sto
+lv 0 32
+lit 1
+rel 2
+tjmp .stop
+jmp .searchPrime
+halt
+
+.Search
+la 0 40
+lv 0 40
+lit 1
+add
+sto
+jmp .searchPrime
+
+.one
+lit 1
+lit 1
+out 0
+out 3
+jmp .stop
+
+.stopA
+lit 13
+lit 49
+lit 49
+out 2
+jmp .stop
+
+.stop
+halt
